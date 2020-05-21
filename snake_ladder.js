@@ -1,5 +1,9 @@
 var body =document.getElementById('body')
 var cont =document.createElement('div') 
+
+var div_dice =document.createElement('div')
+div_dice.setAttribute('id','div_dice')
+
 cont.setAttribute('id','cont')
 var p1_pos =0
 var p2_pos =0
@@ -11,7 +15,7 @@ function start(){
     if(i%10==1){
 
         var div_innr =document.createElement('div')
-        div_innr.style.clear='both'
+        div_innr.style.clear='left'
         cont.append(div_innr)
 
         if(i==101){
@@ -62,8 +66,8 @@ function start(){
     }
     var brk = document.createElement('div')
     brk.style.clear='both'
-
-    body.append(cont,brk)
+   
+    body.append(cont,div_dice,brk)
     body.append(btn1,btn2)
 }
 
@@ -91,6 +95,11 @@ function rolldice1(){
     }
 
     var x =Math.floor(Math.random() * 6) + 1;
+
+    div_dice.textContent ="DICE VALUE :"+x
+    div_dice.style.backgroundColor='#FFF9C4'
+    div_dice.style.color='#B71C1C'
+    
     
     p1_pos += x
     
@@ -113,6 +122,7 @@ function rolldice1(){
         else if(p1_pos==29){
             p1_pos=79
         }
+    body.append(div_dice)
    //-----------------------------
 
         if(p1_pos!=p2_pos){
@@ -149,6 +159,11 @@ function rolldice2(){
         return
     }
     var x =Math.floor(Math.random() * 6) + 1;
+    
+    div_dice.textContent ="DICE VALUE :"+x
+    div_dice.style.backgroundColor='#69F0AE'
+    div_dice.style.color='#1B5E20'
+
     p2_pos += x
 
     if(p2_pos>100){
