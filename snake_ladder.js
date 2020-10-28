@@ -74,9 +74,12 @@ function start(){
 
 //roll dice and player movements...............
 
-
 function rolldice1(){
     //Update previous position
+    if(p1_pos==100){
+        win_p1()
+        return
+    }
     if(p1_pos!=0)
     {   
         if(document.getElementById('player1')!=null){
@@ -136,11 +139,12 @@ function rolldice1(){
 
 }
 
-
-
-
 function rolldice2(){
 
+    if(p2_pos==100){
+        win_p2()
+        return
+    }
     //Updating previous position
     if(p2_pos!=0){
          
@@ -199,40 +203,27 @@ function rolldice2(){
 function win_p1(){
     body.innerHTML =''
     var head1 =document.createElement('h1')
+    var btn = document.createElement('button')
+    btn.textContent="Restart The Game!"
+    btn.setAttribute('onClick',"window.location.reload()")
+    btn.setAttribute('class','restart_btn')
     head1.textContent='Player 1 WON!'
     head1.setAttribute('class','winTxt')
     body.setAttribute('id','bodyp1')
-    body.append(head1)
+    body.append(head1,btn)
    
 
 }
 function win_p2(){
     body.innerHTML=''
     var head2 =document.createElement('h1')
+    var btn = document.createElement('button')
+    btn.textContent="Restart The Game!"
+    btn.setAttribute('onClick',"window.location.reload()")
+    btn.setAttribute('class','restart_btn')
     head2.textContent='Player 2 WON!'
     head2.setAttribute('class','winTxt')
     body.setAttribute('id','bodyp2')
-    body.append(head2)
+    body.append(head2,btn)
 
 }
-
-
-//==============doubt------why using this the roll2 button was not getting deleted?
-//function win_p2(){
-  //  var bdy =document.getElementById('body')
-  //  var chld =bdy.children
-  //  for(var i=0;i<chld.length;i++){
-   // console.log(chld[i])
-   // chld[i].remove() 
-//} 
-
-
-//function win_p1(){
-  //  var bdy =document.getElementById('body')
-  //  var chld =body.children
-   // console.log(chld.length+" len")
-  //  for(var i=0;i<chld.length;i++){
-   // console.log(chld[i])
-   // chld[i].remove()
-//}
-//}
